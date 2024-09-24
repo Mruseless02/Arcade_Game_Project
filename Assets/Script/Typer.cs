@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Typer : MonoBehaviour
 {
     public Wordbank wordbank = null;
     public TMP_Text wordOutput;
     private string remainingWord = string.Empty;
-    private string currentWord = "ehe";
-
-
+    private string currentWord = string.Empty;
+    public GameObject Projectile;
+    public Transform ProjectileTransform;
     // Start is called before the first frame update
     void Start()
     {
         SetCurrentWord();
     }
-
     private void SetCurrentWord()
     {
         currentWord = wordbank.GetWord();
         SetRemainingWord(currentWord);
+        
     }
 
     private void SetRemainingWord(string newString)
@@ -56,6 +57,7 @@ public class Typer : MonoBehaviour
 
             if (isWordComplete())
             {
+                Instantiate(Projectile, ProjectileTransform.position, Quaternion.identity);
                 SetCurrentWord();
             }
         }

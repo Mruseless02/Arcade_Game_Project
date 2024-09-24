@@ -22,7 +22,7 @@ public class Wordbank : MonoBehaviour
         for(int i = 0; i < list.Count; i++)
         {
             int random = Random.Range(i, list.Count);
-            string temp = list[random];
+            string temp = list[i];
             list[i] = list[random];
             list[random] = temp;
         }
