@@ -4,18 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using System.Security.Cryptography.X509Certificates;
 
 public class Typer : MonoBehaviour
 {
     public Wordbank wordbank = null;
     public TMP_Text wordOutput;
+    private Animator animator;
     private string remainingWord = string.Empty;
     private string currentWord = string.Empty;
-    public GameObject Projectile;
+    public GameObject[] Projectile;
+    public GameObject[] Magic_Skill;
+    public int count = 0;
     public Transform ProjectileTransform;
+    public Transform Skill;
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        animator = GetComponent<Animator>();
         SetCurrentWord();
     }
     private void SetCurrentWord()
@@ -57,12 +63,22 @@ public class Typer : MonoBehaviour
 
             if (isWordComplete())
             {
-                Instantiate(Projectile, ProjectileTransform.position, Quaternion.identity);
+                var Magic = Random.Range(0, Projectile.Length);
+                animator.SetTrigger("Attack");
+                if(count <= 3)
+                {
+                    Instantiate(Projectile[Magic], ProjectileTransform.position, Quaternion.identity);
+                    count++;
+                }
+                else if (count == 4)
+                {
+                    var skill = Random.Range(0, Magic_Skill.Length);
+                    Instantiate(Magic_Skill[skill], Skill.position, Quaternion.identity); count = 0;
+                }
                 SetCurrentWord();
             }
         }
     }
-
     private bool IsCorrectLetter(string letter)
     {
         return remainingWord.IndexOf(letter) == 0;
@@ -74,7 +90,7 @@ public class Typer : MonoBehaviour
         SetRemainingWord(newString);
     }
 
-    private bool isWordComplete()
+    public bool isWordComplete()
     {
         return remainingWord.Length == 0;
     }

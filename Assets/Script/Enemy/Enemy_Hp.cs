@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Enemy_Hp : MonoBehaviour
+{
+    public int minHP = 15;
+    public int maxHP = 25;
+    public int Hp;
+    private Rigidbody2D rb;
+    private Animator animator;
+    
+        
+    // Start is called before the first frame update
+    void Start()
+    {
+        Hp = Random.Range(minHP,maxHP);
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        DestroyGameObject();
+    }
+
+    private void DestroyGameObject()
+    {
+        if(Hp <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void takingDamage(int ammount)
+    {
+        this.Hp -= ammount;
+    }
+}

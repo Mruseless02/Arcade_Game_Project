@@ -6,7 +6,7 @@ public class Wordbank : MonoBehaviour
 {
     private List<string> originalWord = new List<string>()
     {
-        "sword", "magic", "bow"
+        "sword", "magic", "bow" ,"tree","skeleton","mage","grave" , "dungeon", "Flame" ,"ice" , "Earth" ,"Time"
     };
     private List<string> workingWord = new List<string>();
 
