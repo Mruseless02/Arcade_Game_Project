@@ -28,12 +28,14 @@ public class Enemy_Hp : MonoBehaviour
     {
         if(Hp <= 0)
         {
-            Destroy(gameObject);
+            animator.SetTrigger("Died");
         }
     }
 
     public void takingDamage(int ammount)
     {
+        animator.SetTrigger("Hit");
         this.Hp -= ammount;
+        
     }
 }

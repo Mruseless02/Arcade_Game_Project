@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6ddebd1dc299b4ab6686f57f0bb75b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tags: Enemy
   Damage: 5
   force: 15
 --- !u!114 &4442907770738830057

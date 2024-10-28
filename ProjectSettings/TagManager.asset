@@ -6,6 +6,15 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - Ground
+  - SpawnActive
+  - Doors
+  - Stairs
+  - Keys
+  - Intereact
+  - Boss
+  - LockedDoor
+  - Traps
   layers:
   - Default
   - TransparentFX
@@ -13,7 +22,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Baclground
   - 
   - 
   - 
@@ -42,4 +51,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 169939023
+    locked: 0
+  - name: Decoration
+    uniqueID: 1339666305
+    locked: 0
+  - name: Level
+    uniqueID: 1458256015
+    locked: 0
+  - name: Player
+    uniqueID: 1118396345
     locked: 0

@@ -16,8 +16,10 @@ public class Typer : MonoBehaviour
     public GameObject[] Projectile;
     public GameObject[] Magic_Skill;
     public int count = 0;
+    private int Heal = 10;
     public Transform ProjectileTransform;
     public Transform Skill;
+    public GameObject Enemy;
     // Start is called before the first frame update
     void Start()
     {   
@@ -40,6 +42,8 @@ public class Typer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Enemy = GameObject.FindWithTag("Enemy");
+        Skill = Enemy.transform;
         CheckInput();
     }
 
@@ -63,14 +67,17 @@ public class Typer : MonoBehaviour
 
             if (isWordComplete())
             {
+                GetComponent<Player_Hp>();
+                Player_Hp player_Hp = GetComponent<Player_Hp>();
+                player_Hp.Healing(Heal);
                 var Magic = Random.Range(0, Projectile.Length);
                 animator.SetTrigger("Attack");
-                if(count <= 3)
+                if(count < 3)
                 {
                     Instantiate(Projectile[Magic], ProjectileTransform.position, Quaternion.identity);
                     count++;
                 }
-                else if (count == 4)
+                else if (count >= 3)
                 {
                     var skill = Random.Range(0, Magic_Skill.Length);
                     Instantiate(Magic_Skill[skill], Skill.position, Quaternion.identity); count = 0;
