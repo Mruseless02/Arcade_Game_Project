@@ -15,6 +15,7 @@ TagManager:
   - Boss
   - LockedDoor
   - Traps
+  - PassiveEnemy
   layers:
   - Default
   - TransparentFX

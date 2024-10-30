@@ -15,7 +15,7 @@ public class Player_Control : MonoBehaviour
     private bool isJumping = false;
     private bool isClimbing = false;
     public bool Have_Key = false;
-    private bool combat;
+    public bool combat;
     // Start is called before the first frame update
     void Start()
     {

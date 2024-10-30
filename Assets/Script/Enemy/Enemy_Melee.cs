@@ -10,8 +10,10 @@ public class Enemy_Melee : MonoBehaviour
     private Vector3 originalPos;
     public Transform TargetPos;
     public GameObject TargetPlayer;
+    private Collider2D coll;
     private Rigidbody2D rb;
     private Animator animator;
+    private Enemy_Hp hp;
     private GameObject attack_range = default;
     private bool isAttacking = false;
     public float intervals;
@@ -20,6 +22,8 @@ public class Enemy_Melee : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        coll = GetComponent<Collider2D>();
+        hp = GetComponent<Enemy_Hp>();
         attack_range = transform.GetChild(0).gameObject;
         TargetPlayer = GameObject.FindWithTag("Player");
         TargetPos = TargetPlayer.transform;
@@ -35,6 +39,12 @@ public class Enemy_Melee : MonoBehaviour
         if (timer >= intervals)
         {
             Attack();
+        }
+        if(hp.Hp <= 0)
+        {
+            Destroy(coll);
+            Destroy(rb);4
+            Destroy(this);
         }
     }
 

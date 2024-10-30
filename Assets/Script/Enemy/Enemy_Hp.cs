@@ -8,6 +8,8 @@ public class Enemy_Hp : MonoBehaviour
     public int maxHP = 25;
     public int Hp;
     private Rigidbody2D rb;
+    private Collider2D col;
+    private Enemy_Melee melee;
     private Animator animator;
     
         
@@ -28,14 +30,15 @@ public class Enemy_Hp : MonoBehaviour
     {
         if(Hp <= 0)
         {
+            Debug.Log("Died");
             animator.SetTrigger("Died");
+            gameObject.tag = "Untagged";
         }
     }
 
     public void takingDamage(int ammount)
     {
         animator.SetTrigger("Hit");
-        this.Hp -= ammount;
-        
+        this.Hp -= ammount;  
     }
 }
