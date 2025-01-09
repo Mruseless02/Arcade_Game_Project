@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 2834177957933171945}
   - component: {fileID: 8304002842082462035}
   - component: {fileID: 4040022432352680108}
+  - component: {fileID: -4634562559703363943}
+  - component: {fileID: 175943463456512486}
   m_Layer: 0
   m_Name: Necromancer_creativekind-Sheet_0
   m_TagString: Enemy
@@ -106,6 +108,7 @@ MonoBehaviour:
   minHP: 250
   maxHP: 250
   Hp: 0
+  particle: {fileID: 8389590440330504060, guid: 8337bc298524c13468f0dac516bf4d42, type: 3}
 --- !u!95 &2524704719870860559
 Animator:
   serializedVersion: 5
@@ -229,6 +232,32 @@ MonoBehaviour:
   Projectile_Attack: {fileID: 554446473075530246, guid: 522ec788e3b02184ea26bdfee3bdd0e2, type: 3}
   Player: {fileID: 0}
   projectileSpawn: {fileID: 0}
+--- !u!114 &-4634562559703363943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211937603944868970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093caeb223326f14cbc3fe7546baf5bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &175943463456512486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211937603944868970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7077a2312ed77da438e47d07217c578e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointGain: 300
+  PointDegradation: 15
 --- !u!1001 &5238317713622897534
 PrefabInstance:
   m_ObjectHideFlags: 0

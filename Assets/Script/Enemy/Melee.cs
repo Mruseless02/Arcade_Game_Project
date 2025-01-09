@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Melee : MonoBehaviour
 {
+    private bool HasRun = false;
     // Start is called before the first frame update
     public int damage = 10;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Player_Hp>() != null)
+        HasRun = false ;
+        if (collision.GetComponent<Player_Hp>() != null && !HasRun)
         {
             Player_Hp player_Hp = collision.GetComponent<Player_Hp>();
             player_Hp.Hit(damage);
+            HasRun = true;
         }
     }
 }

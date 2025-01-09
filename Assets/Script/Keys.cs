@@ -9,6 +9,7 @@ public class Keys : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            PointStoreage.Keys++;
             Destroy(gameObject);
         }
     }

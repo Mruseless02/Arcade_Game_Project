@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 6799548650481876683}
   - component: {fileID: 2164660079719303569}
   - component: {fileID: 5356250311121111308}
+  - component: {fileID: 3345900727430714022}
+  - component: {fileID: 4494545706373137071}
   m_Layer: 0
   m_Name: Skeleton Wolf
   m_TagString: Untagged
@@ -32,14 +34,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137494040202950248}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -68.92087, y: 14.443459, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4497889973368347625}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &7254688576152073945
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -128,6 +130,7 @@ MonoBehaviour:
   minHP: 10
   maxHP: 20
   Hp: 0
+  particle: {fileID: 8389590440330504060, guid: 8337bc298524c13468f0dac516bf4d42, type: 3}
 --- !u!114 &-1436860078984814625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +274,33 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &3345900727430714022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137494040202950248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093caeb223326f14cbc3fe7546baf5bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4494545706373137071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137494040202950248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7077a2312ed77da438e47d07217c578e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointGain: 5
+  PointDegradation: 0
 --- !u!1 &4671514124366299306
 GameObject:
   m_ObjectHideFlags: 0

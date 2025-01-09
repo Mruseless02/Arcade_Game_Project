@@ -16,6 +16,9 @@ TagManager:
   - LockedDoor
   - Traps
   - PassiveEnemy
+  - CameraDetect
+  - Summons
+  - Particle
   layers:
   - Default
   - TransparentFX
@@ -23,7 +26,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Baclground
+  - Ground
   - 
   - 
   - 

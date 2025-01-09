@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 7235630274135975311}
   - component: {fileID: 2975207805303466426}
   - component: {fileID: 367402203674674832}
+  - component: {fileID: 5809208443506040824}
   m_Layer: 0
   m_Name: Skeleton Mage_0
   m_TagString: Enemy
@@ -113,7 +114,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: -1644940098, guid: d194431f76e936340ab27f54269616a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.6666667, y: 2.6666667}
@@ -193,7 +194,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &-1532145999730133251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,8 +208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minHP: 10
-  maxHP: 50
+  maxHP: 25
   Hp: 0
+  particle: {fileID: 8389590440330504060, guid: 8337bc298524c13468f0dac516bf4d42, type: 3}
 --- !u!114 &7235630274135975311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,9 +223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6321d69c1fe8ff249bd768825bbf15f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stone: {fileID: 1596723316212142781, guid: e72c222f87fdb5e4da34331232d56331, type: 3}
+  stone: {fileID: 1456356865232409983, guid: 7e3589a2f2cbd5649882f7d2acc7b3f5, type: 3}
   Target: {fileID: 0}
-  spawn: {fileID: 2311434103885179739}
+  TargetPos: {fileID: 0}
   interval: 10
   timer: 0
 --- !u!95 &2975207805303466426
@@ -259,3 +261,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093caeb223326f14cbc3fe7546baf5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5809208443506040824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5871038932043019371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7077a2312ed77da438e47d07217c578e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointGain: 15
+  PointDegradation: 2

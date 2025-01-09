@@ -14,9 +14,12 @@ GameObject:
   - component: {fileID: 982008856804139034}
   - component: {fileID: 5698618949126214243}
   - component: {fileID: 2650815477331517521}
+  - component: {fileID: 5213561296654095009}
+  - component: {fileID: -4241988541876307270}
+  - component: {fileID: 5858323194226297503}
   m_Layer: 0
   m_Name: Ghoul
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,8 +78,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1118396345
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1557312447, guid: 4947da8f6e2684c4f8909e9f7d57c73c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -185,6 +188,60 @@ MonoBehaviour:
   minHP: 15
   maxHP: 25
   Hp: 0
+  particle: {fileID: 8389590440330504060, guid: 8337bc298524c13468f0dac516bf4d42, type: 3}
+--- !u!114 &5213561296654095009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385082680870946226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093caeb223326f14cbc3fe7546baf5bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &-4241988541876307270
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385082680870946226}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 10
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &5858323194226297503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385082680870946226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7077a2312ed77da438e47d07217c578e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointGain: 15
+  PointDegradation: 2
 --- !u!1 &8891140636436216929
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4597922088364192349
 Transform:
   m_ObjectHideFlags: 0
@@ -246,7 +303,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.02299881, y: -0.28364038}

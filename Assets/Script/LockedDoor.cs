@@ -6,6 +6,7 @@ public class LockedDoor : MonoBehaviour
 {
     private Animator animator;
     public Collider2D coll;
+    private bool doorIsOpen = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,12 @@ public class LockedDoor : MonoBehaviour
             {
                 coll.enabled = false;
                 animator.SetTrigger("Open");
-                player.Have_Key = false;
+                if (player.Have_Key && doorIsOpen == false)
+                {
+                    doorIsOpen = true;
+                    PointStoreage.Keys -= 1;
+                }
+                
             }
         }
     }

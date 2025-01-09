@@ -5,25 +5,29 @@ using UnityEngine;
 
 public class Player_Hp : MonoBehaviour
 {
+    public GameObject MainUi;
+    public GameObject Reset;
+    [SerializeField]
+    private ParticleSystem particle;
+    private ParticleSystem particleInstance;
     public int HP = 100;
-    private int MaxHp = 10000;
+    private int MaxHp = 100;
     private bool canTakeDamage;
-    private float damageInterval = 2f;
+    private float damageInterval = 0.2f;
     private float timer = 0f;
-    private Rigidbody2D rb;
     private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        PointStoreage.TotalHp = HP;
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        timer = Time.deltaTime;
-        if(timer < damageInterval)
+        timer += Time.deltaTime;
+        if(timer > damageInterval)
         {
             canTakeDamage = true;
         }
@@ -34,6 +38,8 @@ public class Player_Hp : MonoBehaviour
     {
         if(HP <= 0)
         {
+            MainUi.SetActive(false);
+            Reset.SetActive(true);
             animator.SetTrigger("Dead");
         }
     }
@@ -50,10 +56,17 @@ public class Player_Hp : MonoBehaviour
         if(canTakeDamage)
         {
             animator.SetTrigger("Hit");
+            DamageParticle();
             this.HP -= ammount;
+            PointStoreage.TotalHp = HP;
             canTakeDamage = false;
             timer = 0f;
         }
         
+    }
+
+    private void DamageParticle()
+    {
+        particleInstance  = Instantiate(particle, transform.position,Quaternion.identity);
     }
 }

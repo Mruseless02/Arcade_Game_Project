@@ -10,15 +10,13 @@ public class Shooting : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
     private GameObject Target;
-    private GameObject Boss;
     private Transform TargetPos;
-    private Transform BossPos;
     public float force;
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         SpawnPoint = transform.position;
-        Target = GameObject.FindWithTag(tags);
+        Target = GameObject.FindWithTag("Enemy");
         TargetPos = Target.transform;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -31,7 +29,7 @@ public class Shooting : MonoBehaviour
             Enemy_Hp enemy_Hp = collider.GetComponent<Enemy_Hp>();
             enemy_Hp.takingDamage(Damage);
         }
-        if (collider.CompareTag(tags))
+        if (collider.CompareTag("Enemy"))
         {
             force = 0;
             animator.SetTrigger("Hit");
@@ -41,7 +39,7 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindWithTag(tags))
+        if (GameObject.FindWithTag("Enemy"))
         {
         Vector3 Direction = TargetPos.position - SpawnPoint;
         rb.velocity = new Vector3(Direction.x, Direction.y).normalized * force;

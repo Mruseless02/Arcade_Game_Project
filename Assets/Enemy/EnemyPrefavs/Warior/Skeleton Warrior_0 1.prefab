@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d8852303067dd4fa36dcc3fd9c6044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &5681172020311928614
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +107,7 @@ GameObject:
   - component: {fileID: 646868663517604308}
   - component: {fileID: 18532585171349640}
   - component: {fileID: 2800266191106306444}
+  - component: {fileID: 6635841165533106073}
   m_Layer: 0
   m_Name: Skeleton Warrior_0 1
   m_TagString: Enemy
@@ -172,7 +174,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 251764152, guid: 01763754213f47540b6e79eb6db615ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.6666667, y: 2.6666667}
@@ -220,9 +222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 169ad665aac4668489b3bac12ab48b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minHP: 50
-  maxHP: 150
+  minHP: 25
+  maxHP: 50
   Hp: 0
+  particle: {fileID: 8389590440330504060, guid: 8337bc298524c13468f0dac516bf4d42, type: 3}
 --- !u!61 &8073724821012869604
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -316,3 +319,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093caeb223326f14cbc3fe7546baf5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6635841165533106073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5681172020311928614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7077a2312ed77da438e47d07217c578e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointGain: 15
+  PointDegradation: 0

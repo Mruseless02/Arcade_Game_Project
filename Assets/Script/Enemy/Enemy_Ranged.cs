@@ -1,22 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UIElements;
 
 public class Enemy_Ranged : MonoBehaviour
 {
     public GameObject stone;
     public GameObject Target;
-    public Transform spawn;
+    private SpriteRenderer sprite;
+    public Transform TargetPos;
     private Animator animator;
+    private AudioSource Audio;
+    private bool DefaultState;
     public float interval = 5;
     public float timer;
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         Target = GameObject.FindWithTag("Player");
-        spawn = Target.transform;
+        TargetPos = Target.transform;
+        Audio = GetComponent<AudioSource>();
+        Flip();
     }
 
     // Update is called once per frame
@@ -25,14 +32,37 @@ public class Enemy_Ranged : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= interval)
         {
-            Attack();
             animator.SetTrigger("Attack");
             timer = 0;
         }
     }
-
+    private void Flip()
+    {
+        if(DefaultState == true)
+        {
+            if (transform.position.x < TargetPos.position.x)
+            {
+                sprite.flipX = true;
+            }
+            else
+            {
+                sprite.flipX = false;
+            }
+        }
+        else if(DefaultState == false)
+        {
+            if (transform.position.x > TargetPos.position.x)
+            {
+                sprite.flipX = true;
+            }
+            else
+            {
+                sprite.flipX = false;
+            }
+        }
+    }
     private void Attack()
-    { 
-        Instantiate(stone,spawn.position, Quaternion.identity);
+    {
+        Instantiate(stone,gameObject.transform.position, Quaternion.identity);
     }
 }

@@ -9,15 +9,23 @@ public class Necromancer : MonoBehaviour
     public GameObject Player;
     public Transform projectileSpawn;
     private Enemy_Hp hp;
+    private BossDrop Drops;
     private Rigidbody2D rb;
     private Animator animator;
     private Vector3 target;
     private float timer;
     private float intervals;
     private bool canAtttack;
+    [SerializeField]
+    private GameObject[] Rise;
+    int maxRise = 2;
+    int count = 0;
+    bool canRise;
     void Start()
     {
+        
         Player = GameObject.FindWithTag("Player");
+        Drops = GetComponent<BossDrop>();
         timer = 0;
         intervals = 5;
         projectileSpawn = gameObject.transform;
@@ -40,22 +48,19 @@ public class Necromancer : MonoBehaviour
         {
             attack(rand); 
         }
-        if(hp.Hp == hp.Hp/2 && GameObject.FindWithTag("Enemy") == null)
+        if(hp.Hp == hp.Hp/2 && count <= maxRise)
         {
-            animator.SetTrigger("Rise");
+            SummonEnemy();
         }
-        
     }
 
     private void SummonEnemy()
     {
-        int count = 0;
-        int maxRise = 2;
-        transform.GetChild(0).gameObject.SetActive(true);
-        animator.SetBool("RisenEnemy", true);
-        if(GameObject.FindWithTag("Enemy")  == null && count <= maxRise)
+        if (count < maxRise && canRise)
         {
-            animator.SetBool("RisenEnemy", false);
+            transform.GetChild(0).gameObject.SetActive(true);
+            animator.Play("Necromancer@Rise");
+            count++;
         }
     }
 
@@ -63,13 +68,13 @@ public class Necromancer : MonoBehaviour
     {
        if(attackType <= 4)
         {
-            animator.SetTrigger("Attack1");
+            animator.Play("Necromancer@Attack");
             timer = 0;
             canAtttack = false;
         }
        if(attackType >= 5)
         {
-            animator.SetTrigger("Attack2");
+            animator.Play("Necromancer@Attack 2");
             timer = 0;
             canAtttack = false;
         }

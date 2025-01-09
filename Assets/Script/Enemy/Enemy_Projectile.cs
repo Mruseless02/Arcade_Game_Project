@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy_Projectile : MonoBehaviour
@@ -13,6 +14,7 @@ public class Enemy_Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.rotation = transform.rotation;
         projectileSpawn = transform.position;
         Player = GameObject.FindWithTag("Player");
         animator = GetComponent<Animator>();
@@ -38,5 +40,13 @@ public class Enemy_Projectile : MonoBehaviour
     {
         Vector3 Target = Player.transform.position - projectileSpawn;
         rb.velocity = new Vector2 (Target.x, Target.y).normalized * force;
+        Vector3 rotation = Player.transform.position - transform.position;
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rotZ);
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }

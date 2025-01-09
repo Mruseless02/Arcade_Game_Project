@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,6 +16,7 @@ public class Enemy_Melee : MonoBehaviour
     private Animator animator;
     private Enemy_Hp hp;
     private GameObject attack_range = default;
+    private SpriteRenderer sprite;
     private bool isAttacking = false;
     public float intervals;
     private float timer;
@@ -22,6 +24,7 @@ public class Enemy_Melee : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         coll = GetComponent<Collider2D>();
         hp = GetComponent<Enemy_Hp>();
         attack_range = transform.GetChild(0).gameObject;
@@ -30,6 +33,7 @@ public class Enemy_Melee : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         originalPos = transform.position;
+        Flip();
     }
 
     // Update is called once per frame
@@ -40,12 +44,6 @@ public class Enemy_Melee : MonoBehaviour
         {
             Attack();
         }
-        if(hp.Hp <= 0)
-        {
-            Destroy(coll);
-            Destroy(rb);4
-            Destroy(this);
-        }
     }
 
     private void Attack()
@@ -53,6 +51,7 @@ public class Enemy_Melee : MonoBehaviour
         if(timer >= intervals)
         {
             force = 10;
+            animator.SetTrigger("Walk");
             Vector3 target = TargetPos.position - originalPos;
             rb.velocity = new Vector3(target.x, target.y).normalized * force;
         }
@@ -61,16 +60,30 @@ public class Enemy_Melee : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-        {
+        {                                                                                              
             if(!isAttacking)
             {
                 timer = 0;
                 force = 0;
-                attack_range.SetActive(true);
                 animator.SetTrigger("Attack");
                 isAttacking = true;
             }           
         }
+    }
+    private void Flip()
+    {
+        if (transform.position.x > TargetPos.position.x)
+        {
+            sprite.flipX = true;
+        }
+        else
+        {
+            sprite.flipX = false;
+        }
+    }
+    private void AttackActive()
+    {
+        attack_range.SetActive(true);
     }
     private void hasAttack()
     {
@@ -79,4 +92,8 @@ public class Enemy_Melee : MonoBehaviour
         transform.position = originalPos;
     }
 
+    private void PlaySound()
+    {
+        AudioManager.PlayAudio(SoundType.Steps);
+    }
 }

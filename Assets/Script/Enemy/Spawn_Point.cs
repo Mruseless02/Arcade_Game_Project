@@ -8,12 +8,12 @@ public class Spawn_Point : MonoBehaviour
     public int maxSpawn;
     public int count = 0;
     public GameObject[] Enemy;
-    public Transform SpawnPoint;
+    public Vector3 SpawnPoint;
     bool hasSpawned = false;
     // Start is called before the first frame update
     void Start()
     {
-        SpawnPoint = transform;
+        SpawnPoint = gameObject.transform.position;
     }
     // Update is called once per frame
     void Update()
@@ -32,7 +32,7 @@ public class Spawn_Point : MonoBehaviour
     private void Spawn()
     {
         var enemy = Random.Range(0, Enemy.Length);
-        Instantiate(Enemy[enemy], SpawnPoint.transform.position, Quaternion.identity);
+        Instantiate(Enemy[enemy], SpawnPoint, Quaternion.identity);
         hasSpawned = true;
     }
 }

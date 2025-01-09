@@ -52,6 +52,7 @@ public class Typer : MonoBehaviour
         if (Input.anyKeyDown)
         {
             string keyPressed = Input.inputString;
+            AudioManager.PlayAudio(SoundType.Typing);
             if (keyPressed.Length == 1)
             {
                 EnterLetter(keyPressed);
