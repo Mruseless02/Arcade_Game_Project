@@ -234,13 +234,17 @@ MonoBehaviour:
   Point: {fileID: 0}
   Keys: {fileID: 0}
   Highscore: {fileID: 0}
+  scene:
+    m_Handle: 0
+  currentScene: 
   particle: {fileID: 4571799263175698206, guid: 28fa07d7101923344bac085e3d5d18fe, type: 3}
   currentPoints: 0
+  currentHp: 0
   force: 10
   jumpPwr: 100000
   climb: 10
   Have_Key: 0
-  key: 0
+  keys: 0
   combat: 0
   ParticleSpawn: {fileID: 5074256989324529719}
 --- !u!114 &2010738747422745340

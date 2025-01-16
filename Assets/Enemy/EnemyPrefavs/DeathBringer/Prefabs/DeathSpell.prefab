@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8623495770811206626}
   - component: {fileID: 7934572685389437195}
   - component: {fileID: 5978464572880684754}
+  - component: {fileID: 7717385390029053486}
   m_Layer: 0
   m_Name: DeathSpell
   m_TagString: Untagged
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1458256015
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1535519656, guid: 863dd3373b60ff044aaf95a40f886132, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -134,3 +135,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093caeb223326f14cbc3fe7546baf5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &7717385390029053486
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9038049856223754003}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.31209552, y: 2.2424848}
+  m_SpriteTilingProperty:
+    border: {x: 2.7222223, y: 0, z: 2.9444444, w: 0}
+    pivot: {x: 0.4353254, y: 0.06135137}
+    oldSize: {x: 7.7777777, y: 5.1666665}
+    newSize: {x: 7.7777777, y: 5.1666665}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.0498507, y: 5.118934}
+  m_EdgeRadius: 0

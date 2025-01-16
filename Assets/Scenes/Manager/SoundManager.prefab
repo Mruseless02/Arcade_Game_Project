@@ -1,0 +1,305 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &223674338277992154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6121251976212344286}
+  - component: {fileID: 1687823539526157847}
+  - component: {fileID: 5408815627502492556}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6121251976212344286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223674338277992154}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1687823539526157847
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223674338277992154}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &5408815627502492556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223674338277992154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 062bec1c5e62f9340abb4e7796573e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundList:
+  - name: Fire_Magic
+    Sound:
+    - {fileID: 8300000, guid: ebcc6c481032d0649b9b089b1e605d0e, type: 3}
+    - {fileID: 8300000, guid: 685dbf38660717945b43b4518a312a45, type: 3}
+    - {fileID: 8300000, guid: 27586a917607e9a4492835656aa0dfea, type: 3}
+  - name: Explosion
+    Sound:
+    - {fileID: 8300000, guid: ac725f3a9adeff9428d816e24282b762, type: 3}
+  - name: Fire_Crackle
+    Sound:
+    - {fileID: 8300000, guid: d390671d163fcbc4a8938a7de761291f, type: 3}
+    - {fileID: 8300000, guid: 62ac45eaa6a28994b94db77991bb6fc0, type: 3}
+    - {fileID: 8300000, guid: 6d459c2c3ddda064d9c751f7ed24870c, type: 3}
+  - name: Wind_Magic
+    Sound:
+    - {fileID: 8300000, guid: c91fcf414acc0344cb03b13996f1bf3b, type: 3}
+    - {fileID: 8300000, guid: 69bf357280ac9e84ebe267934ea45315, type: 3}
+    - {fileID: 8300000, guid: 53314ae2c7c8ad745bdacd13859df51e, type: 3}
+  - name: Water_Bullet
+    Sound:
+    - {fileID: 8300000, guid: fc0c30bf7d985ae47b952ae40bfd6b26, type: 3}
+    - {fileID: 8300000, guid: c05abb41d53ec7f4d9d232473cf7df64, type: 3}
+  - name: Water_Spike
+    Sound:
+    - {fileID: 8300000, guid: 86fea6a890e0bb741b0921a1448f9b4f, type: 3}
+    - {fileID: 8300000, guid: 7a19236cfbb82fa48932797cbef9a5d0, type: 3}
+  - name: Water_Drips
+    Sound:
+    - {fileID: 8300000, guid: 344b4b93b2eba92468b0351553691906, type: 3}
+  - name: Thunder_Magic
+    Sound:
+    - {fileID: 8300000, guid: f1cb5d83282f2904a85f73111d068616, type: 3}
+    - {fileID: 8300000, guid: b0579461eba5bb649ae1921916f0564b, type: 3}
+    - {fileID: 8300000, guid: 3c83ece7a9062d7479dd08d4d7b800ad, type: 3}
+  - name: Thunder_Hit
+    Sound:
+    - {fileID: 8300000, guid: f3ed536436ebd5c408e1cd0ab9809093, type: 3}
+    - {fileID: 8300000, guid: 72a622635adf07e4082872f254946fb0, type: 3}
+  - name: Ice_Magic_Create
+    Sound:
+    - {fileID: 8300000, guid: 11aa4c12354220a4190f1d6496b99782, type: 3}
+    - {fileID: 8300000, guid: 5eac4525ec1be1d4b8c728ceba879016, type: 3}
+    - {fileID: 8300000, guid: 35a88180a9524f24c830187316d654b3, type: 3}
+  - name: Ice_Magic
+    Sound:
+    - {fileID: 8300000, guid: 5f988d8e1884f65409683a041a998500, type: 3}
+    - {fileID: 8300000, guid: 7673fd575998f27458e9f50321c11401, type: 3}
+    - {fileID: 8300000, guid: 2df49f6bb18bd3247bd788e26695f4ff, type: 3}
+  - name: Ice_Freeze
+    Sound:
+    - {fileID: 8300000, guid: 320b27e7762dcc6408a4484de5674504, type: 3}
+    - {fileID: 8300000, guid: ee8cd6bf65d145c4ab7062879b41bf02, type: 3}
+    - {fileID: 8300000, guid: 36b094f676492ba4ba6ef88a978e4650, type: 3}
+  - name: Dark_Magic
+    Sound:
+    - {fileID: 8300000, guid: 92ea075362db62b4c8b3083910bfaf29, type: 3}
+    - {fileID: 8300000, guid: 45ddd0f4d18782b4084b417b0c8ed41a, type: 3}
+    - {fileID: 8300000, guid: 8ec6d6b87ccf4654c8b8da80122fa2c8, type: 3}
+  - name: Dark_Hit
+    Sound:
+    - {fileID: 8300000, guid: d72f092e235cf1a4ea4753ac224df7f8, type: 3}
+    - {fileID: 8300000, guid: 6bd6a099132434548ada33cf6b24d7da, type: 3}
+    - {fileID: 8300000, guid: 6f0b229ef27bd9a42a84acf0655281ba, type: 3}
+  - name: Dark_Ground
+    Sound:
+    - {fileID: 8300000, guid: 53094941c874f7348a5ea15e8e0f752f, type: 3}
+    - {fileID: 8300000, guid: ea394a1d35db077429686f931a7cb11a, type: 3}
+    - {fileID: 8300000, guid: e512f7c8648ee494b8716a3879b4e390, type: 3}
+  - name: Stone_Magic
+    Sound:
+    - {fileID: 8300000, guid: b7f8695cf65a4f24eb37544298821146, type: 3}
+    - {fileID: 8300000, guid: 5530bd95a1662024fa8b664d3d590840, type: 3}
+  - name: Hit
+    Sound:
+    - {fileID: 8300000, guid: 8b23b175a78d6b5458322e3a6c9905d0, type: 3}
+  - name: Death
+    Sound:
+    - {fileID: 8300000, guid: f8d5085b51ff8004b81372c361aa48e4, type: 3}
+  - name: Skeleton_Hit
+    Sound:
+    - {fileID: 8300000, guid: 34981bd0a90d41e4eb52c59b496940d8, type: 3}
+    - {fileID: 8300000, guid: 6db91c491fee9934db111df09e1d1fa8, type: 3}
+    - {fileID: 8300000, guid: 3d68bb9ba72597d478be1e67a0ee31d1, type: 3}
+  - name: Skeleton_Death
+    Sound:
+    - {fileID: 8300000, guid: a313580f9ed36ff40a29dc030b4b70b7, type: 3}
+  - name: Enemy_Death
+    Sound:
+    - {fileID: 8300000, guid: 9986f70640d0de54186ee4808a0a6de7, type: 3}
+  - name: EvilMageLaugh
+    Sound:
+    - {fileID: 8300000, guid: 2dbe9c91f40c0e849ad31afffff8949d, type: 3}
+    - {fileID: 8300000, guid: 4c504d9c352ce9c428ecca743ccef7f1, type: 3}
+    - {fileID: 8300000, guid: bdba3e289eb360b4da2aaef61924bb78, type: 3}
+  - name: Enemy_Hit
+    Sound:
+    - {fileID: 8300000, guid: 554ab1ecc76b8ed4b8efe5339dc28593, type: 3}
+  - name: Enemy_Slash
+    Sound:
+    - {fileID: 8300000, guid: 6ae6be33722c56f49be9718503af11bd, type: 3}
+  - name: Enemy_Bite
+    Sound:
+    - {fileID: 8300000, guid: f5dc1d30dd6494240b751ff4bb4ae600, type: 3}
+  - name: Enemy_Attack
+    Sound:
+    - {fileID: 8300000, guid: a73a36e606227184f9493f7e46e82e6e, type: 3}
+  - name: Traps
+    Sound:
+    - {fileID: 8300000, guid: 608ec2c736ff1444990d6ea9e14d43a0, type: 3}
+  - name: Steps
+    Sound:
+    - {fileID: 8300000, guid: 023ea3ddeaa8dd146b7633a0800e5a0e, type: 3}
+  - name: StairClimbing
+    Sound:
+    - {fileID: 8300000, guid: e1e2d06fe0d78194b9c7c8cc88414d0d, type: 3}
+  - name: Eviroment
+    Sound:
+    - {fileID: 8300000, guid: 3d5997959ee029a4c982e1705e69e506, type: 3}
+  - name: Atmosphere
+    Sound:
+    - {fileID: 8300000, guid: 3d5997959ee029a4c982e1705e69e506, type: 3}
+  - name: Charging
+    Sound:
+    - {fileID: 8300000, guid: d1afd3f4d23c24f418ffc315afb04965, type: 3}
+  - name: Earth_Bump
+    Sound:
+    - {fileID: 8300000, guid: f5a6ed64c93507a4992cb60674d97a78, type: 3}
+  - name: Humanoid_Hurt
+    Sound:
+    - {fileID: 8300000, guid: 5dc2d815410ef2849b36c3e10fa02e43, type: 3}
+  - name: Humanoid_Died
+    Sound:
+    - {fileID: 8300000, guid: bb4a3488f5002f943849d844b0068cba, type: 3}
+  - name: Ice_Hit
+    Sound:
+    - {fileID: 8300000, guid: 1a006b47a359c6d498cb7137f8c69428, type: 3}
+  - name: Wind_Suck
+    Sound:
+    - {fileID: 8300000, guid: 2f99b46955eefb14ca44e6ba62d2ce08, type: 3}
+  - name: Wind_Explode
+    Sound:
+    - {fileID: 8300000, guid: 1fc4add6a875712479da988d0485fd93, type: 3}
+    - {fileID: 8300000, guid: 16de10ffffdc9144ab1834aae0d51ed1, type: 3}
+  - name: Water_Hit
+    Sound:
+    - {fileID: 8300000, guid: 40aed0f10738184419db188993b05336, type: 3}
+    - {fileID: 8300000, guid: 1eb7cbaf61d23a64bbd36c0a38b5cb0c, type: 3}
+  - name: Typing
+    Sound:
+    - {fileID: 8300000, guid: d92fc0f597c5054448d5a23f46ec271c, type: 3}
+    - {fileID: 8300000, guid: 62d6623d8ab5d5b4287c9a0f1c8a8e05, type: 3}
+    - {fileID: 8300000, guid: ff7fdefc31044d548a16d8ae7262e081, type: 3}
+    - {fileID: 8300000, guid: 2880bf700ea2deb47b7aa2f33e715ef0, type: 3}
+    - {fileID: 8300000, guid: c0eedf695dd057c468d8fde70978707b, type: 3}
+    - {fileID: 8300000, guid: d5ff6f6a63447e447b5b056903e77773, type: 3}
+  - name: DoorOpen
+    Sound:
+    - {fileID: 8300000, guid: d0870c964a2354d8094ce31e769a7290, type: 3}
+  - name: DoorClose
+    Sound:
+    - {fileID: 8300000, guid: b88eb643c13ba4470b51a26e2823b565, type: 3}

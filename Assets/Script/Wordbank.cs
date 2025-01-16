@@ -7,7 +7,7 @@ public class Wordbank : MonoBehaviour
     private List<string> originalWord = new List<string>()
     {
         "sword", "magic", "bow" ,"tree","skeleton","mage","grave" , "dungeon", "Flame" ,"ice" , "Earth" ,"Time","floor","Keys","Wolf","Slime","Cat","Violin","Fiddle","Ghoul","Mystic","Door","Necromancer","Mermaid","Rapier","Scyhte","Bar","Moss","light","Dark","Dog","Lorelei",
-        "Hunter","Farm","Fruit","Vegtable","Gorgon","oasis","cathedral","mosque","Golem","silver","gold","copper","azure","ruby"
+        "Hunter","Farm","Fruit","Vegtable","Gorgon","oasis","cathedral","mosque","Golem","silver","gold","copper","azure","ruby","gargoyle"
     };
     private List<string> workingWord = new List<string>();
 

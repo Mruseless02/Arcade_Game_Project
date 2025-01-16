@@ -68,5 +68,6 @@ public class Player_Hp : MonoBehaviour
     private void DamageParticle()
     {
         particleInstance  = Instantiate(particle, transform.position,Quaternion.identity);
+        particleInstance.transform.parent = gameObject.transform;
     }
 }

@@ -1,7 +1,9 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Player_Control : MonoBehaviour
+public class Player_Control : MonoBehaviour, IDataPresistence
 {
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
@@ -13,9 +15,13 @@ public class Player_Control : MonoBehaviour
     [SerializeField]
     private TMP_Text Highscore;
     [SerializeField]
-    private ParticleSystem particle;
+    private Scene scene;
+    public string currentScene;
+    public ParticleSystem particle;
     private ParticleSystem particleInstance;
+    private sceneManager sceneManager;
     public int currentPoints = 0;
+    public int currentHp;
     public float force;
     public float jumpPwr;
     public float climb;
@@ -23,7 +29,7 @@ public class Player_Control : MonoBehaviour
     private bool isJumping = false;
     private bool isClimbing = false;
     public bool Have_Key = false;
-    public int key;
+    public int keys;
     public bool combat;
     private float fallTreshold = -5f;
     public GameObject ParticleSpawn;
@@ -31,23 +37,25 @@ public class Player_Control : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scene = SceneManager.GetActiveScene();
+        currentScene = scene.name;
         updateHighscore();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         combat = false;
-        currentPoints = PointStoreage.TotalPoint;
     }
 
     // Update is called once per frame
     void Update()
     {
-        KeyCheck();
+        currentHp = GetComponent<Player_Hp>().HP;
         fallCheck();
-        Keys.SetText(key.ToString());
+        Keys.SetText(keys.ToString());
         Point.SetText(currentPoints.ToString());
         Timer += Time.deltaTime;
         combatMode();
+        PointStoreage.TotalHp = currentHp;
         if (!combat)
         {
             GetComponent<Typer>().enabled = false;
@@ -57,7 +65,20 @@ public class Player_Control : MonoBehaviour
         {
             GetComponent<Typer>().enabled = true;
         }
+    }
 
+    public void LoadData(GameData data)
+    { 
+        this.currentHp = data.HpCount;
+        this.currentPoints = data.PointCount;
+        this.transform.position = data.playerPosition;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.HpCount = this.currentHp;
+        data.PointCount = this.currentPoints;
+        data.playerPosition = this.transform.position;
     }
 
     private void fallCheck()
@@ -89,7 +110,6 @@ public class Player_Control : MonoBehaviour
         {
             rb.velocity = new Vector2(-force, rb.velocity.y);
             CreateParticle();
-
             sprite.flipX = true;
             animator.Play("Player@Run");
             Timer = 0;
@@ -169,22 +189,19 @@ public class Player_Control : MonoBehaviour
         }
     }
 
-    private void KeyCheck()
+    public void KeyCheck(int key)
     {
-        key = PointStoreage.Keys;
-        if (key != 0)
-        {
-            Have_Key = true;
-        }
-        else if (key == 0)
+        keys = PointStoreage.Keys;
+        this.keys += key;
+        if(keys <= 0)
         {
             Have_Key = false;
         }
-        if (key < 0)
+        else if(keys >= 1)
         {
-            key = 0;
+            Have_Key=true;
         }
-        PointStoreage.Keys = key;
+        PointStoreage.Keys = keys;
     }
     private void HighScore()
     {

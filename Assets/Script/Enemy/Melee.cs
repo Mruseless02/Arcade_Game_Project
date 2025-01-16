@@ -12,9 +12,9 @@ public class Melee : MonoBehaviour
         HasRun = false ;
         if (collision.GetComponent<Player_Hp>() != null && !HasRun)
         {
+            HasRun = true;
             Player_Hp player_Hp = collision.GetComponent<Player_Hp>();
             player_Hp.Hit(damage);
-            HasRun = true;
         }
     }
 }

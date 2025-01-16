@@ -45,11 +45,8 @@ public enum SoundType
     Wind_Suck,
     Wind_Explode,
     Water_Hit,
-    MainMenuBgm,
-    CombatMusic,
-    VillageBgm,
-    DungeonBgm,
     Typing,
+    DoorOpen,DoorClose,
 }
 
 [RequireComponent(typeof(AudioSource)) ,ExecuteInEditMode]

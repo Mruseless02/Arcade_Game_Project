@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Necromancer : MonoBehaviour
@@ -8,82 +7,93 @@ public class Necromancer : MonoBehaviour
     public GameObject Projectile_Attack;
     public GameObject Player;
     public Transform projectileSpawn;
+    private SpriteRenderer sprite;
     private Enemy_Hp hp;
     private BossDrop Drops;
     private Rigidbody2D rb;
     private Animator animator;
+    public int random;
     private Vector3 target;
     private float timer;
-    private float intervals;
+    public float intervals;
     private bool canAtttack;
-    [SerializeField]
-    private GameObject[] Rise;
-    int maxRise = 2;
-    int count = 0;
-    bool canRise;
     void Start()
     {
-        
+        sprite = GetComponent<SpriteRenderer>();
         Player = GameObject.FindWithTag("Player");
         Drops = GetComponent<BossDrop>();
         timer = 0;
-        intervals = 5;
         projectileSpawn = gameObject.transform;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         hp = GetComponent<Enemy_Hp>();
+        flip();
+        RandomAttack();
     }
 
+    
     // Update is called once per frame
     void Update()
     {
-        var rand = Random.Range(0, 9);
         target = Player.transform.position;
         timer += Time.deltaTime;
-        if(timer > intervals)
+        if (timer > intervals)
         {
             canAtttack = true;
         }
-        if(canAtttack )
+        if (canAtttack)
         {
-            attack(rand); 
-        }
-        if(hp.Hp == hp.Hp/2 && count <= maxRise)
-        {
-            SummonEnemy();
+            attack(random);
         }
     }
 
-    private void SummonEnemy()
+    private void flip()
     {
-        if (count < maxRise && canRise)
+        if(transform.position.x > Player.transform.position.x)
         {
-            transform.GetChild(0).gameObject.SetActive(true);
-            animator.Play("Necromancer@Rise");
-            count++;
+            sprite.flipX = true;
         }
+        else
+        {
+            sprite.flipX = false;
+        }
+    }
+    void RandomAttack()
+    {
+        random = Random.Range(0, 9);
     }
 
     void attack(int attackType)
     {
-       if(attackType <= 4)
+        if (attackType <= 4)
         {
-            animator.Play("Necromancer@Attack");
-            timer = 0;
-            canAtttack = false;
+            Attack_Ground();
         }
-       if(attackType >= 5)
+        else if (attackType >= 5)
         {
-            animator.Play("Necromancer@Attack 2");
-            timer = 0;
-            canAtttack = false;
+            Attack_Projectile();
         }
     }
     void Attack_Ground()
     {
-        Instantiate(Ground_Attack, target, Quaternion.identity);
+        timer = 0;
+        animator.Play("Necromancer@GroundAttack");
+        canAtttack = false;
+        RandomAttack();
     }
+    void LaunchGround()
+    {
+        Instantiate(Ground_Attack, Player.transform.position, Quaternion.identity);
+    }
+
     void Attack_Projectile()
+    {
+        timer = 0;
+        animator.Play("Necromancer@ProjectileAttack");
+        canAtttack = false;
+        RandomAttack();
+    }
+    void LaunchProjectile()
     {
         Instantiate(Projectile_Attack, projectileSpawn.position, Quaternion.identity);
     }

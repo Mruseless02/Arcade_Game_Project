@@ -21,12 +21,14 @@ public class DeathBringger : MonoBehaviour
     private float Timer;
     [SerializeField]
     private float Delay;
+    private int rand;
     private bool canAttack = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        randomVal();
         Sprite = GetComponent<SpriteRenderer>();
         Player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
@@ -42,7 +44,6 @@ public class DeathBringger : MonoBehaviour
     void Update()
     {
         Timer += Time.deltaTime;
-        var rand = Random.Range(0, 9);
         if(Timer > Delay)
         {
             canAttack = true;
@@ -53,6 +54,11 @@ public class DeathBringger : MonoBehaviour
         }
 
     }
+
+    private void randomVal()
+    {
+        rand = Random.Range(0, 9);
+    }
     private void Attack(int rand )
     {
         if(rand <= 4)
@@ -60,12 +66,14 @@ public class DeathBringger : MonoBehaviour
             Timer = 0;
             animator.Play("DearhBringger@Cast");
             canAttack = false;
+            randomVal();
         }
         if(rand >= 5)
         {
             Timer = 0;
             animator.Play("DearhBringger@Walk");
             canAttack = false;
+            randomVal();
         }
     }
 

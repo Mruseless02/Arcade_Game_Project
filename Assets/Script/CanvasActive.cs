@@ -12,7 +12,14 @@ public class CanvasActive : MonoBehaviour
     {
         if (collision.GetComponent<Player_Control>() != null)
         {
+            Time.timeScale = 0;
             canvas.SetActive(true);
         }
+    }
+
+    public void disableCanvas()
+    {
+        Time.timeScale = 1;
+        canvas.SetActive(false);
     }
 }

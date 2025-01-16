@@ -27,7 +27,7 @@ public class Point : MonoBehaviour
         Timer = Time.deltaTime;
         if(Timer > PointInterval)
         {
-            PointGain =- PointDegradation;
+            PointGain -= PointDegradation;
         }
         if(Hp.Hp <= 0 && !hasRun)
         {

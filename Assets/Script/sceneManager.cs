@@ -8,9 +8,8 @@ using TMPro;
 public class sceneManager : MonoBehaviour
 {
     public GameObject canvas;
-    public TMP_Text highScore;
     private Scene currscene;
-    public string sceneName;
+    public static string sceneName;
     public Animator animator;
     private void Start()
     {
@@ -18,10 +17,6 @@ public class sceneManager : MonoBehaviour
         sceneName = currscene.name;
     }
 
-    private void Update()
-    {
-        highScore.text = $"Highscore : {PlayerPrefs.GetInt("Highscore", 0)}";
-    }
     // Start is called before the first frame update
     public void changeScene(string sceneName)
     {
