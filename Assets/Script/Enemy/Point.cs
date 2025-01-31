@@ -6,6 +6,7 @@ public class Point : MonoBehaviour
 {
 
     public int PointGain;
+    public int EnemyKilled;
     public int PointDegradation;
     private float PointInterval = 10f;    
     private float Timer;
@@ -32,6 +33,7 @@ public class Point : MonoBehaviour
         if(Hp.Hp <= 0 && !hasRun)
         {
             Points.PointsGain(PointGain);Debug.Log("Points +");
+            Points.enemyKilled++;
             hasRun = true;
         }
         

@@ -8,10 +8,13 @@ public class Datapresistence : MonoBehaviour
 
     [SerializeField] private string fileName;
     [SerializeField] private bool StartGameIfNUll = true;
+    [SerializeField] private bool encrptFile;
     public static Datapresistence instance { get; private set; }
     private List<IDataPresistence> dataPresistencesObject;
     private DataHandler handler;
-    private GameData data;
+    public GameData data;
+    public static string loadedScene;
+    public static int TotalEnemyKiled;
     private void Awake()
     {
         if (instance != null)
@@ -22,7 +25,7 @@ public class Datapresistence : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(this.gameObject);
-        this.handler = new DataHandler(Application.persistentDataPath, fileName);
+        this.handler = new DataHandler(Application.persistentDataPath, fileName,encrptFile);
     }
 
     public void OnEnable()
@@ -38,12 +41,14 @@ public class Datapresistence : MonoBehaviour
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log("Game Loaded");
         this.dataPresistencesObject = FindAllDataPresistenceObject();
         LoadGame();
     }
 
     public void OnSceneUnloaded(Scene scene)
     {
+        Debug.Log("Game Save");
         SaveGame();
     }
 
@@ -55,12 +60,10 @@ public class Datapresistence : MonoBehaviour
     public void LoadGame()
     {
         this.data = handler.Load();
-
         if (data == null && StartGameIfNUll == true)
         {
             NewGame();
         }
-
 
         if (this.data == null)
         {
@@ -72,6 +75,7 @@ public class Datapresistence : MonoBehaviour
         {
             dataPresistenceObj.LoadData(data);
         }
+        MenuData();
     }
 
     public void SaveGame()
@@ -101,6 +105,12 @@ public class Datapresistence : MonoBehaviour
         return new List<IDataPresistence>(datapresistenceObject);
     }
 
+    public void MenuData()
+    {
+        loadedScene = this.data.Scene;
+        TotalEnemyKiled = this.data.enemyKilledCount;
+    }
+    
     public bool HasGameData()
     {
         return data != null;

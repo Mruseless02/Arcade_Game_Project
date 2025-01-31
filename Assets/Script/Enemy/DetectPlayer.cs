@@ -14,16 +14,19 @@ public class DetectPlayer : MonoBehaviour
         if (collision.GetComponent<Player_Control>()!= null)
         {
             gameObject.tag = "Enemy";
-            Player_Control player = collision.GetComponent<Player_Control>();
-            player.combat = true;
             animator.SetTrigger("Rise");
             Rise();
         }
     }
-
     private void Rise()
     {
+        GetComponent<ChangeMusic>().changeAudio();
         GetComponent<Enemy_Melee>().enabled = true;
         Destroy(this);
+    }
+
+    private void dead()
+    {
+        GetComponent<ChangeMusic>().returnAudio();
     }
 }

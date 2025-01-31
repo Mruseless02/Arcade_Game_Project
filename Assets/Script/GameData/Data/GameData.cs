@@ -7,13 +7,15 @@ public class GameData
 {
     public string Scene;
     public int PointCount;
+    public int enemyKilledCount;
+    public int keyCount;
     public int HpCount;
-    public Vector3 playerPosition;
     public GameData() 
     {
+        this.enemyKilledCount = 0;
+        this.Scene = "";
         this.HpCount = 0;
         this.PointCount = 0;
-        playerPosition = Vector3.zero;
     }
     
 }

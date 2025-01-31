@@ -8,12 +8,15 @@ public class DataHandler
 {
     private string dirPath = "";
     private string fileName = "";
+    [SerializeField] private bool EncrptFile = false;
     private readonly string encryptioncode = "hooman";
 
-    public DataHandler(string dirPath, string fileName)
+    public DataHandler(string dirPath, string fileName, bool encrptFile)
     {
+        this.EncrptFile = encrptFile;
         this.dirPath = dirPath;
         this.fileName = fileName;
+        EncrptFile = encrptFile;
     }
 
     public GameData Load()
@@ -33,8 +36,10 @@ public class DataHandler
                         dataToLoad = reader.ReadToEnd();
                     }
                 }
-
-                dataToLoad = EncryptionData(dataToLoad);
+                if(EncrptFile)
+                {
+                    dataToLoad = EncryptionData(dataToLoad);
+                }
                 dataLoaded = JsonUtility.FromJson<GameData>(dataToLoad);
             }
             catch (Exception e)
@@ -55,7 +60,11 @@ public class DataHandler
            
             string dataToStore = JsonUtility.ToJson(data, true);
 
-            dataToStore = EncryptionData(dataToStore);
+            if (EncrptFile)
+            {
+
+                dataToStore = EncryptionData(dataToStore);
+            }
 
             using(FileStream stream = new FileStream(fullPath, FileMode.Create))
             {

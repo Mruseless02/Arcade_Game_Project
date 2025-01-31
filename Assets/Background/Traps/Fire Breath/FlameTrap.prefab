@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trap: {fileID: 3415439041486617972, guid: 2e0b2747ef844274380dd84819daec31, type: 3}
   Spawn: {fileID: 710327252531669309}
+  interval: 2.5
 --- !u!95 &3213925451197919169
 Animator:
   serializedVersion: 5
