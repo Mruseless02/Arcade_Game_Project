@@ -9,12 +9,27 @@ public class sceneManager : MonoBehaviour
 {
     public GameObject canvas;
     private Scene currscene;
+    public string[] Randscene;
     public static string sceneName;
     public Animator animator;
     private void Start()
     {
         currscene = SceneManager.GetActiveScene();
         sceneName = currscene.name;
+    }
+
+    public void randomScene()
+    {
+        var Nextscene = Random.Range(0, Randscene.Length);
+        if (Randscene[Nextscene] == sceneName)
+        {
+            randomScene();
+        }
+        else
+        {
+            StartCoroutine(LoadNextScene(Randscene[Nextscene]));
+        }
+        
     }
 
     // Start is called before the first frame update

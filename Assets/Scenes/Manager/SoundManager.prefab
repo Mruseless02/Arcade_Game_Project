@@ -303,3 +303,6 @@ MonoBehaviour:
   - name: DoorClose
     Sound:
     - {fileID: 8300000, guid: b88eb643c13ba4470b51a26e2823b565, type: 3}
+  - name: FireTrap
+    Sound:
+    - {fileID: 8300000, guid: 608ec2c736ff1444990d6ea9e14d43a0, type: 3}

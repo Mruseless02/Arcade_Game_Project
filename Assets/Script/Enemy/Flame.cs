@@ -25,7 +25,10 @@ public class Flame : MonoBehaviour
         }
     }
 
-    
+    private void playSound()
+    {
+        AudioManager.PlayAudio(SoundType.FireTrap);
+    }
     private void Rotate()
     {
         Vector3 rotation = aim.position - transform.position;

@@ -30,7 +30,7 @@ public class Player_Control : MonoBehaviour, IDataPresistence
     public float jumpPwr;
     public float climb;
     private float Timer;
-    private bool isJumping = false;
+    public bool isJumping = false;
     private bool isClimbing = false;
     public bool Have_Key = false;
     public int keys;
@@ -210,14 +210,6 @@ public class Player_Control : MonoBehaviour, IDataPresistence
         PointStoreage.TotalPoint = currentPoints;
         HighScore();
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Stairs"))
-        {
-            isClimbing = false;
-            rb.gravityScale = 10f;
-        }
-    }
 
     public void KeyCheck(int key)
     {
@@ -243,13 +235,6 @@ public class Player_Control : MonoBehaviour, IDataPresistence
     {
         Highscore.text = $"Highscore : {PlayerPrefs.GetInt("Highscore", 0)}";
     }
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isJumping = false;
-        }
-    }
     private void CreateParticle()
     {
         Quaternion Rotation = Quaternion.FromToRotation(Vector2.right, rb.velocity);
@@ -263,5 +248,10 @@ public class Player_Control : MonoBehaviour, IDataPresistence
     private void PlaySound()
     {
         AudioManager.PlayAudio(SoundType.Steps);
+    }
+
+    private void ClimbingLadder()
+    {
+        AudioManager.PlayAudio(SoundType.StairClimbing);
     }
 }

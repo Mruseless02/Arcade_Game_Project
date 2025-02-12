@@ -44,12 +44,6 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float timer = Time.deltaTime;
-
-        if (timer > lifetime)
-        {
-            Destroy(this.gameObject);
-        }
         if (GameObject.FindWithTag("Enemy"))
         {
         Vector3 Direction = TargetPos.position - SpawnPoint;
@@ -57,6 +51,10 @@ public class Shooting : MonoBehaviour
         Vector3 rotation = TargetPos.position - transform.position;
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
+        }
+        else if(GameObject.FindWithTag("Enemy") == null)
+        {
+            Destroy(this.gameObject);
         }
     }
 }

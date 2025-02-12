@@ -47,6 +47,7 @@ public enum SoundType
     Water_Hit,
     Typing,
     DoorOpen,DoorClose,
+    FireTrap,
 }
 
 [RequireComponent(typeof(AudioSource)) ,ExecuteInEditMode]

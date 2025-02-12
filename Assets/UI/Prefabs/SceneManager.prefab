@@ -258,4 +258,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  Randscene:
+  - Dungeon
+  - Dungeon2
+  - Dungeon3
   animator: {fileID: 5021526604996839774}
