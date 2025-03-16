@@ -7,7 +7,15 @@ public class SpawnerActive : MonoBehaviour
 {
     private void Update()
     {
-        CheckEnemy();
+        float timer;
+        timer = Time.unscaledDeltaTime;
+        float CheckInterval = 0.25f;
+
+        if (timer > CheckInterval)
+        {
+            CheckEnemy();
+            timer = 0;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
