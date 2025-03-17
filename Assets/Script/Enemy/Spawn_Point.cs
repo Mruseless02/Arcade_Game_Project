@@ -32,7 +32,7 @@ public class Spawn_Point : MonoBehaviour
     private void Spawn()
     {
         var enemy = Random.Range(0, Enemy.Length);
-        Instantiate(Enemy[enemy], SpawnPoint, Quaternion.identity);
+        Instantiate(Enemy[enemy],SpawnPoint, Quaternion.identity);
         hasSpawned = true;
     }
 }

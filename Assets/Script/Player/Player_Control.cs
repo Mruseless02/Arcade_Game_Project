@@ -160,7 +160,7 @@ public class Player_Control : MonoBehaviour, IDataPresistence
 
             CreateParticle();
 
-            rb.AddForce(Vector2.up * jumpPwr);
+            rb.AddForce(Vector2.up * jumpPwr,ForceMode2D.Impulse);
             Timer = 0;
             isJumping = true;
         }

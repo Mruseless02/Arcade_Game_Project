@@ -7,14 +7,13 @@ public class SpawnerActive : MonoBehaviour
 {
     private void Update()
     {
-        float timer;
-        timer = Time.unscaledDeltaTime;
-        float CheckInterval = 0.25f;
+        float check;
+        check = Time.fixedTime;
 
-        if (timer > CheckInterval)
+        if (check > 0.45)
         {
             CheckEnemy();
-            timer = 0;
+            check = 0;
         }
     }
 
@@ -40,8 +39,10 @@ public class SpawnerActive : MonoBehaviour
     {
         if (GameObject.FindWithTag("Enemy") == null)
         {
+            Debug.Log("Enemy Not Found");
             GetComponent<CameraSeting>().StandartCamera();
             GetComponent<ChangeMusic>().returnAudio();
         }
+        Debug.Log("Enemy Found");
     }
 }

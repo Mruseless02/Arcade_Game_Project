@@ -121,7 +121,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0bd40887b40f8e949acda0670bc45277, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.8888889, y: 0.8888889}
@@ -242,7 +242,7 @@ MonoBehaviour:
   currentHp: 0
   enemyKilled: 0
   force: 10
-  jumpPwr: 100000
+  jumpPwr: 50
   climb: 10
   isJumping: 0
   Have_Key: 0
@@ -364,7 +364,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 50
+  m_Mass: 1
   m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 10
