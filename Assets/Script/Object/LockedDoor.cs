@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 public class LockedDoor : MonoBehaviour
@@ -6,6 +7,8 @@ public class LockedDoor : MonoBehaviour
     public Collider2D coll;
     private bool doorIsOpen = false;
     private bool isLocked = true;
+    public bool needMoreThenOneLock = false;
+    [SerializeField]private int KeysNeeded;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,18 +24,27 @@ public class LockedDoor : MonoBehaviour
             Player_Control player = collision.GetComponent<Player_Control>();
             if (player.Have_Key)
             {
-                coll.isTrigger = true;
-                animator.SetBool("Open", true);
-                if (player.Have_Key && doorIsOpen == false)
+                if (player.Have_Key && doorIsOpen == false && needMoreThenOneLock == false)
                 {
-                    doorIsOpen = true;
                     player.keys -= 1;
+                    animator.SetBool("Open", true);
+                    coll.isTrigger = true;
+                    doorIsOpen = true;
+                }
+                else if (player.Have_Key && doorIsOpen == false && needMoreThenOneLock == true)
+                {
+                    if(player.keys == KeysNeeded)
+                    {
+                        player.keys -= KeysNeeded;
+                        animator.SetBool("Open", true);
+                        coll.isTrigger = true;
+                        doorIsOpen = true;
+                    }
                 }
 
             } 
         }
     }
-
     private void PlayAudioOpen()
     {
         AudioManager.PlayAudio(SoundType.DoorOpen);

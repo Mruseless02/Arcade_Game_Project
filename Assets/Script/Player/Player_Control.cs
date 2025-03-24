@@ -188,6 +188,14 @@ public class Player_Control : MonoBehaviour, IDataPresistence
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Stairs"))
+        {
+            isClimbing = false;
+            rb.gravityScale = 10f;
+        }
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("SpawnActive"))
